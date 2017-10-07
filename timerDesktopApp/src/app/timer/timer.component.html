@@ -1,0 +1,15 @@
+
+<md-tab-group>
+  <md-tab label="Timer">
+    <div>
+      <button mat-raised-button (click)="onClick()">{{buttonText}}</button>
+    </div>
+    <div>
+      <br><br>
+      <mat-spinner mode="indeterminate" *ngIf="state"></mat-spinner>
+    </div>
+  </md-tab>
+  <md-tab label="Report">
+
+  </md-tab>
+</md-tab-group>
