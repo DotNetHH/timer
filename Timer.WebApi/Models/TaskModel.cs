@@ -7,8 +7,8 @@ namespace Timer.WebApi.Models
 {
     public class TaskModel
     {
-        public DateTime DateTimeUtc { get; set; }
-        public string Ticket { get; set; }
+        public DateTime TimeStamp { get; set; }
+        public string TicketId { get; set; }
         public string Description { get; set; }
     }
 }
