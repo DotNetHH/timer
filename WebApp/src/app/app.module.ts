@@ -31,8 +31,8 @@ import { LoaderComponent } from './components/shared/loader/loader.component';
   imports: [
       RouterModule.forRoot([
        { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: '**', redirectTo: 'home' }
+       { path: 'home', component: HomeComponent },
+       { path: '**', redirectTo: 'home' }
     ]),
     BrowserModule,
     HttpModule,
