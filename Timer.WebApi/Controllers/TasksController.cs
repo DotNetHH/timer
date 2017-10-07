@@ -43,14 +43,8 @@ namespace WebApi.Controllers
             if (task == null)
                 throw new ArgumentNullException();
 
-            businessLayerCommandManager.AddCommand(
-                new Timer.Abstractions.StartTaskCommand()
-                    {
-                        TimeStamp = task.DateTimeUtc,
-                        Description = task.Description,
-                        TicketId = task.Ticket
-                    }
-            );
+            var startCommand = AutoMapper.Mapper.Map<TaskModel, Timer.Abstractions.StartTaskCommand>(task);
+            businessLayerCommandManager.AddCommand(startCommand);
         }
 
         // POST api/tasks
@@ -65,14 +59,8 @@ namespace WebApi.Controllers
             if (task == null)
                 throw new ArgumentNullException();
 
-            businessLayerCommandManager.AddCommand(
-                new Timer.Abstractions.StopTaskCommand()
-                    {
-                        TimeStamp = task.DateTimeUtc,
-                        Description = task.Description,
-                        TicketId = task.Ticket
-                    }
-            );
+            var stopCommand = AutoMapper.Mapper.Map<TaskModel, Timer.Abstractions.StopTaskCommand>(task);
+            businessLayerCommandManager.AddCommand(stopCommand);
         }
 
         // POST api/tasks
@@ -87,14 +75,8 @@ namespace WebApi.Controllers
             if (task == null)
                 throw new ArgumentNullException();
 
-            businessLayerCommandManager.AddCommand(
-                new Timer.Abstractions.InterruptCommand()
-                    {
-                        TimeStamp = task.DateTimeUtc,
-                        Description = task.Description,
-                        TicketId = task.Ticket
-                    }
-            );
+            var interruptCommand = AutoMapper.Mapper.Map<TaskModel, Timer.Abstractions.InterruptCommand>(task);
+            businessLayerCommandManager.AddCommand(interruptCommand);
         }
     }
 }
