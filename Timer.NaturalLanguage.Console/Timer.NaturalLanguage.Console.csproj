@@ -6,6 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MJNsoft.Base.Database" Version="1.0.0" />
+    <PackageReference Include="MJNsoft.Base.Database.LinqToDb" Version="1.0.0" />
+    <PackageReference Include="MJNsoft.Base.Database.Postgres" Version="1.0.0" />
+    <PackageReference Include="MJNsoft.Base.DependencyInjection" Version="1.0.2" />
+    <PackageReference Include="MJNsoft.Base.Log" Version="1.0.0" />
+    <PackageReference Include="Moq" Version="4.7.137" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 

@@ -10,3 +10,5 @@ services:
     image: postgres
     ports:
       - "6432:5432"
+    volumes:
+      - /c/Temp/postgres/var/lib/postgresql:/var/lib/postgresql
