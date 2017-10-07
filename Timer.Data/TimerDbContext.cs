@@ -3,6 +3,7 @@ using MJNsoft.Base.Database.LinqToDb;
 using MJNsoft.Base.Database.LinqToDb.Abstractions;
 using MJNsoft.Base.Database.Migration.Abstractions;
 using System;
+using Timer.Data.Abstractions;
 
 namespace Timer.Data
 {
@@ -10,7 +11,7 @@ namespace Timer.Data
     {
         public Guid Id { get; } = new Guid("76DFD27B-93E0-4B32-8C1C-D72757F2D599");
         public string Name { get; } = "Timer";
-        public int Version { get; set; } = 1; // Bei Änderungen der Struktur hochzählen
+        public int Version { get; set; } = 2; // Bei Änderungen der Struktur hochzählen
 
         public TimerDbContext(string configurationName)
           : base(configurationName)
@@ -41,6 +42,9 @@ namespace Timer.Data
                                                              , ""TimeStamp"" TEXT NOT NULL
                                                              , ""Command"" TEXT NOT NULL
                                                              , PRIMARY KEY(""Id""))");
+                    break;
+                case 2:
+                    updates.Add("ALTER TABLE dba.\"Command\" ADD \"Type\" TEXT NOT NULL");
                     break;
             }
         }

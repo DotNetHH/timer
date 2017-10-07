@@ -1,0 +1,15 @@
+﻿[
+  {
+    "Category": "App",
+    "Values": [
+      {
+        "Key": "Database",
+        "Value": {
+          "Name": "Timer",
+          "ProviderName": "PostgreSQL",
+          "ConnectionString": "Server=localhost;Port=6432;Database=Timer;User Id=dba;Password=sql;Pooling=true;MinPoolSize=10;MaxPoolSize=100;"
+        }
+      }
+    ]
+  }
+]
