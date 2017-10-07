@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -29,11 +29,11 @@ export class HomePage {
     let time = new Date();
     let ticket = "42";
     let description = "hooooooooah";
-    let body = JSON.stringify({DateTimeUtc: time, ticket:ticket, description: description});
+    let body = JSON.stringify({timestamp: time, ticketid:ticket, description: description});
     let head = new Headers({'Content-Type': 'application/json'});
 
     this.http
-      .post('http://localhost:50682/api/tasks/stop', 
+      .post('http://localhost:50682/api/tasks/start', 
         body, { headers: head } )
       .toPromise()
       .then(res => {
@@ -44,11 +44,8 @@ export class HomePage {
       .catch(this.handleError);
 
   }
-
-
   startTapped() {
     console.log('start');
 
   }
-
 }

@@ -36,19 +36,20 @@ namespace WebApi
 
             IoC.ServiceCollection.AddSingleton<ILoggerProvider>(_loggerProviderMock.Object);
 
-            IoC.ServiceCollection.Add(services);
-            IoC.ServiceCollection.AddMvc();
 
 
             // ********************
             // Setup CORS
             // ********************
             var corsBuilder = new CorsPolicyBuilder();
+
             corsBuilder.AllowAnyHeader();
             corsBuilder.AllowAnyMethod();
             corsBuilder.AllowAnyOrigin(); // For anyone access.
+
             //corsBuilder.WithOrigins("http://localhost:56573"); // for a specific url. Don't add a forward slash on the end!
-            corsBuilder.AllowCredentials();
+
+            //corsBuilder.AllowCredentials();
 
             IoC.ServiceCollection.AddCors(options =>
             {
@@ -56,6 +57,11 @@ namespace WebApi
             });
 
             //IoC.ServiceCollection.AddCors();
+
+
+            IoC.ServiceCollection.Add(services);
+            IoC.ServiceCollection.AddMvc();
+
 
             return IoC.Services;
         }
@@ -68,8 +74,9 @@ namespace WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
             app.UseCors("SiteCorsPolicy");
+            app.UseMvc();
+
         }
     }
 }
