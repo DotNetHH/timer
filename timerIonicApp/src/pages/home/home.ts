@@ -11,4 +11,23 @@ export class HomePage {
 
   }
 
+  stopTapped() {
+    console.log('stop');
+
+    // That's right, we're pushing to ourselves!
+    // this.navCtrl.push(ListPage, {
+    //   item: item
+    // });
+  }
+
+
+  startTapped() {
+    console.log('start');
+
+    // That's right, we're pushing to ourselves!
+    // this.navCtrl.push(ListPage, {
+    //   item: item
+    // });
+  }
+
 }
