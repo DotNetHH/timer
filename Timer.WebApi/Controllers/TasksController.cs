@@ -25,9 +25,12 @@ namespace WebApi.Controllers
         [HttpGet]
         public IEnumerable<TaskModel> Get()
         {
-            {{}}            return new List<TaskModel>()
+            return new List<TaskModel>()
             {
-                new TaskModel () { DateTimeUtc = DateTime.Now, Description = "War voll fleißig am Coden, Testen, Deployen", Ticket = "ABC-1234" }
+                new TaskModel () { TimeStamp = DateTime.Now, Description = "War voll fleißig am Coden, Testen, Deployen", TicketId = "ABC-1234" },
+                new TaskModel () { TimeStamp = DateTime.Now, Description = "Workshop", TicketId = "XYZ-666" },
+                new TaskModel () { TimeStamp = DateTime.Now, Description = "Telko", TicketId = "ZZZ-9876" },
+                new TaskModel () { TimeStamp = DateTime.Now, Description = "internes Training", TicketId = "ABC-1234" }
             };
         }
 

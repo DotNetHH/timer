@@ -14,6 +14,9 @@ namespace Timer.WebApi
         protected AutoMapperProfileConfiguration(string profileName) : base(profileName)
         {
             CreateMap<Timer.WebApi.Models.TaskModel, Timer.Abstractions.InterruptCommand>();
-        }}
+            CreateMap<Timer.WebApi.Models.TaskModel, Timer.Abstractions.StartTaskCommand>();
+            CreateMap<Timer.WebApi.Models.TaskModel, Timer.Abstractions.StopTaskCommand>();
+        }
+    }
     
 }
