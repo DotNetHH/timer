@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="MJNsoft.Base.DependencyInjection.Abstractions" Version="1.0.0" />
+    <PackageReference Include="MJNsoft.Base.Services" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
