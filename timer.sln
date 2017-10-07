@@ -7,13 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer.WebApi", "Timer.WebAp
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3B368A37-FF26-4E4C-9698-E4BB53CFDA30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer.Service.Abstractions", "..\Timer.Service.Abstractions\Timer.Service.Abstractions.csproj", "{9AE5CCE7-65DF-4E8C-9086-34064FBA2ACB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timer", "Timer\Timer.csproj", "{C6C0AC7B-B712-4AF8-B34C-8EA0F75646DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer", "Timer\Timer.csproj", "{C6C0AC7B-B712-4AF8-B34C-8EA0F75646DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timer.Data", "Timer.Data\Timer.Data.csproj", "{5782C34E-58A2-425A-835D-5BE988A461DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer.Data", "Timer.Data\Timer.Data.csproj", "{5782C34E-58A2-425A-835D-5BE988A461DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateDatabase", "CreateDatabase\CreateDatabase.csproj", "{1F14D98D-5C9A-4BE2-B151-8AE1F69D9E37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateDatabase", "CreateDatabase\CreateDatabase.csproj", "{1F14D98D-5C9A-4BE2-B151-8AE1F69D9E37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timer.Service.Abstractions", "Timer.Service.Abstractions\Timer.Service.Abstractions.csproj", "{7F7E6C9F-32B5-407C-9534-19CC783FC97C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		{3B368A37-FF26-4E4C-9698-E4BB53CFDA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B368A37-FF26-4E4C-9698-E4BB53CFDA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B368A37-FF26-4E4C-9698-E4BB53CFDA30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9AE5CCE7-65DF-4E8C-9086-34064FBA2ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AE5CCE7-65DF-4E8C-9086-34064FBA2ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AE5CCE7-65DF-4E8C-9086-34064FBA2ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AE5CCE7-65DF-4E8C-9086-34064FBA2ACB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C6C0AC7B-B712-4AF8-B34C-8EA0F75646DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6C0AC7B-B712-4AF8-B34C-8EA0F75646DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6C0AC7B-B712-4AF8-B34C-8EA0F75646DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{1F14D98D-5C9A-4BE2-B151-8AE1F69D9E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F14D98D-5C9A-4BE2-B151-8AE1F69D9E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F14D98D-5C9A-4BE2-B151-8AE1F69D9E37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F7E6C9F-32B5-407C-9534-19CC783FC97C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7E6C9F-32B5-407C-9534-19CC783FC97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F7E6C9F-32B5-407C-9534-19CC783FC97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F7E6C9F-32B5-407C-9534-19CC783FC97C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,6 +15,17 @@ namespace Timer
             _timerDataProvider = timerDataProvider;
         }
 
+        public void AddCommand(ICommand command)
+        {
+            //var entity = new CommandEntity
+            //{
+
+            //    Command = Newtonsoft.Json.SerializeObject(command);
+            //}
+
+            //throw new NotImplementedException();
+        }
+
         //public void Get()
         //{
         //    _timerDataProvider.CommandRepository.Insert()

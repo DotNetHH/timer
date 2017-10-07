@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Timer.Service.Abstractions\Timer.Service.Abstractions.csproj" />
     <ProjectReference Include="..\Timer.Data\Timer.Data.csproj" />
   </ItemGroup>
 
