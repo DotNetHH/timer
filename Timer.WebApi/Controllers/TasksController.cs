@@ -23,7 +23,7 @@ namespace WebApi.Controllers
         {
             {{}}            return new List<TaskModel>()
             {
-                new TaskModel () { DateTimeUtc = DateTime.Now, Description = "War voll fleißig am Coden, Testen, Deployen", Ticket = "ABC-1234" }
+                new TaskModel () { TimeStamp = DateTime.Now, Description = "War voll fleißig am Coden, Testen, Deployen", TicketId = "ABC-1234" }
             };
         }
 
