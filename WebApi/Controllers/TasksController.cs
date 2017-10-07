@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,9 +14,12 @@ namespace WebApi.Controllers
     {
         // GET: api/tasks
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<TaskModel> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new List<TaskModel>()
+            {
+                new TaskModel () { DateTimeUtc = DateTime.Now }
+            };
         }
 
         // GET api/tasks/5
@@ -32,7 +36,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="jsonTask">Task object as JSON, containing UTC Timestamp at least</param>
         [HttpPost]
-        public void Start([FromBody]string jsonTask)
+        public void Start([FromBody] TaskModel task)
         {
             
         }
@@ -44,7 +48,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="jsonTask">Task object as JSON, containing UTC Timestamp at least</param>
         [HttpPost]
-        public void Stop([FromBody]string jsonTask)
+        public void Stop([FromBody] TaskModel task)
         {
 
         }
