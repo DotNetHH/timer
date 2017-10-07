@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MJNsoft.Base.DependencyInjection.Abstractions" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Timer.Service.Abstractions\Timer.Service.Abstractions.csproj" />
+    <ProjectReference Include="..\Timer.Data\Timer.Data.csproj" />
+  </ItemGroup>
+
+</Project>

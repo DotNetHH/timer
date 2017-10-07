@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MJNsoft.Base.Database.Postgres" Version="1.0.0" />
+    <PackageReference Include="MJNsoft.Base.DependencyInjection" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
