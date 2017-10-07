@@ -16,7 +16,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IEnumerable<TaskModel> Get()
         {
-            return new List<TaskModel>()
+            {{}}            return new List<TaskModel>()
             {
                 new TaskModel () { DateTimeUtc = DateTime.Now, Description = "War voll fleißig am Coden, Testen, Deployen", Ticket = "ABC-1234" }
             };
@@ -35,7 +35,7 @@ namespace WebApi.Controllers
         /// This method accepts JSON object as parameter that contains UTC TimeStamp at least. Further properties may follow.
         /// </summary>
         /// <param name="jsonTask">Task object as JSON, containing UTC Timestamp at least</param>
-        [HttpPost]
+        [HttpPost("start")]
         public ActionResult Start([FromBody] TaskModel task)
         {
             if (task == null)
@@ -53,7 +53,7 @@ namespace WebApi.Controllers
         /// This method accepts JSON object as parameter that contains UTC TimeStamp at least. Further properties may follow.
         /// </summary>
         /// <param name="jsonTask">Task object as JSON, containing UTC Timestamp at least</param>
-        [HttpPost]
+        [HttpPost("stop")]
         public ActionResult Stop([FromBody] TaskModel task)
         {
             if (task == null)
