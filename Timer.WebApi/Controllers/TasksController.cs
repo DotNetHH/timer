@@ -12,6 +12,8 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class TasksController : Controller
     {
+        private Timer.Abstractions.ICommandManager businessLayerCommandManager;
+
         // GET: api/tasks
         [HttpGet]
         public IEnumerable<TaskModel> Get()
@@ -38,7 +40,12 @@ namespace WebApi.Controllers
         [HttpPost]
         public void Start([FromBody] TaskModel task)
         {
-            
+            if (task == null)
+                throw new ArgumentNullException();
+
+            businessLayerCommandManager.AddCommand(
+                new Timer.Abstractions.StartTaskCommand() { TimeStamp = task.DateTimeUtc }
+            );
         }
 
         // POST api/tasks
@@ -50,7 +57,29 @@ namespace WebApi.Controllers
         [HttpPost]
         public void Stop([FromBody] TaskModel task)
         {
+            if (task == null)
+                throw new ArgumentNullException();
 
+            businessLayerCommandManager.AddCommand(
+                new Timer.Abstractions.StopTaskCommand() { TimeStamp = task.DateTimeUtc }
+            );
+        }
+
+        // POST api/tasks
+        /// <summary>
+        /// This method interrupts a task. When the interrupt is terminated, the original task continues.
+        /// This method accepts JSON object as parameter that contains UTC TimeStamp at least. Further properties may follow.
+        /// </summary>
+        /// <param name="jsonTask">Task object as JSON, containing UTC Timestamp at least</param>
+        [HttpPost]
+        public void Interrupt([FromBody] TaskModel task)
+        {
+            if (task == null)
+                throw new ArgumentNullException();
+
+            businessLayerCommandManager.AddCommand(
+                new Timer.Abstractions.InterruptCommand() { TimeStamp = task.DateTimeUtc }
+            );
         }
     }
 }
