@@ -7,8 +7,11 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MJNsoft.Base.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Moq;
+using MJNsoft.Base.Log.Abstractions;
 
 namespace WebApi
 {
@@ -21,10 +24,20 @@ namespace WebApi
 
         public IConfiguration Configuration { get; }
 
+        private Mock<ILoggerProvider> _loggerProviderMock = new Mock<ILoggerProvider>();
+        private Mock<ILogger> _loggerMock = new Mock<ILogger>();
+
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            _loggerProviderMock.Setup(m => m.GetLogger(It.IsAny<string>())).Returns(_loggerMock.Object);
+            _loggerProviderMock.Setup(m => m.GetLogger(It.IsAny<Type>())).Returns(_loggerMock.Object);
+            _loggerMock.Setup(m => m.LogDebug(It.IsAny<string>())).Callback<string>(message => System.Diagnostics.Debug.WriteLine(message));
+
+            IoC.ServiceCollection.AddSingleton<ILoggerProvider>(_loggerProviderMock.Object);
+
+            IoC.ServiceCollection.Add(services);
+            IoC.ServiceCollection.AddMvc();
 
 
             // ********************
@@ -37,12 +50,14 @@ namespace WebApi
             //corsBuilder.WithOrigins("http://localhost:56573"); // for a specific url. Don't add a forward slash on the end!
             corsBuilder.AllowCredentials();
 
-            services.AddCors(options =>
+            IoC.ServiceCollection.AddCors(options =>
             {
                 options.AddPolicy("SiteCorsPolicy", corsBuilder.Build());
             });
 
-            //services.AddCors();
+            //IoC.ServiceCollection.AddCors();
+
+            return IoC.Services;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
