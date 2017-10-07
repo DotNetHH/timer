@@ -38,6 +38,7 @@ namespace Timer.Data
             {
                 case 1:
                     updates.Add(@"CREATE TABLE dba.""Command""(""Id"" UUID NOT NULL
+                                                             , ""TimeStamp"" TEXT NOT NULL
                                                              , ""Command"" TEXT NOT NULL
                                                              , PRIMARY KEY(""Id""))");
                     break;
