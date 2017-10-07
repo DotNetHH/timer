@@ -1,8 +1,6 @@
 ﻿using MJNsoft.Base.DependencyInjection;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Timer.Data.Abstractions;
 
 namespace Timer.Data.Tests
 {

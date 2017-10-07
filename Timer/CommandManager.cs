@@ -3,9 +3,9 @@ using MJNsoft.Base.Services.Abstractions;
 using Newtonsoft.Json;
 using System;
 using Timer.Abstractions;
-using Timer.Data;
 using System.Collections.Generic;
 using System.Linq;
+using Timer.Data.Abstractions;
 
 namespace Timer
 {
@@ -26,6 +26,7 @@ namespace Timer
             var entity = new CommandEntity
             {
                 TimeStamp = _dateTimeProvider.Now,
+                Type = command.GetType().FullName,
                 Command = JsonConvert.SerializeObject(command)
             };
             _timerDataProvider.CommandRepository.Insert(entity);
@@ -35,10 +36,9 @@ namespace Timer
         {
             var result = new List<ICommand>();
 
-//            _timerDataProvider.CommandRepository.GetAll().ToList().ForEach(e=>JsonConvert.DeserializeObject;
+            _timerDataProvider.CommandRepository.GetAll().ToList().ForEach(e=>result.Add((ICommand)JsonConvert.DeserializeObject(e.Command,GetType().Assembly.GetType(e.Type))));
 
-
-            throw new NotImplementedException();
+            return result;
         }
     }
 }

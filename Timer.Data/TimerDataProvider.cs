@@ -1,5 +1,6 @@
 ﻿using MJNsoft.Base.Database.Abstractions;
 using MJNsoft.Base.DependencyInjection.Abstractions;
+using Timer.Data.Abstractions;
 
 namespace Timer.Data
 {

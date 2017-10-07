@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using AutoMapper;
 using Microsoft.AspNetCore.Cors;
-using WebApi.Models;
+using Timer.WebApi.Models;
 
 namespace WebApi.Controllers
 {
@@ -11,10 +12,13 @@ namespace WebApi.Controllers
     public class TasksController : Controller
     {
         private Timer.Abstractions.ICommandManager businessLayerCommandManager;
+        private readonly IMapper _mapper;
 
-        public TasksController(Timer.Abstractions.ICommandManager commandManager)
+        public TasksController(Timer.Abstractions.ICommandManager commandManager,
+            IMapper mapper)
         {
             this.businessLayerCommandManager = commandManager;
+            _mapper = mapper;
         }
 
         // GET: api/tasks
@@ -24,8 +28,8 @@ namespace WebApi.Controllers
             return new List<TaskModel>()
             {
                 new TaskModel () { TimeStamp = DateTime.Now, Description = "War voll fleißig am Coden, Testen, Deployen", TicketId = "ABC-1234" },
-                new TaskModel () { TimeStamp = DateTime.Now, Description = "Workshop mit Kunden", TicketId = "XYZ-1234" },
-                new TaskModel () { TimeStamp = DateTime.Now, Description = "Telko mit Kunden", TicketId = "ABC-666" },
+                new TaskModel () { TimeStamp = DateTime.Now, Description = "Workshop", TicketId = "XYZ-666" },
+                new TaskModel () { TimeStamp = DateTime.Now, Description = "Telko", TicketId = "ZZZ-9876" },
                 new TaskModel () { TimeStamp = DateTime.Now, Description = "internes Training", TicketId = "ABC-1234" }
             };
         }
@@ -49,8 +53,7 @@ namespace WebApi.Controllers
             if (task == null)
                 return BadRequest();
 
-            AutoMapper.Mapper.Initialize(cfg => cfg.CreateMap<TaskModel, Timer.Abstractions.StartTaskCommand>());
-            var startCommand = AutoMapper.Mapper.Map <TaskModel, Timer.Abstractions.StartTaskCommand>(task);
+            var startCommand = _mapper.Map<TaskModel, Timer.Abstractions.StartTaskCommand>(task);
             businessLayerCommandManager.AddCommand(startCommand);
 
             return Ok();
@@ -68,8 +71,7 @@ namespace WebApi.Controllers
             if (task == null)
                 return BadRequest();
 
-            AutoMapper.Mapper.Initialize(cfg => cfg.CreateMap<TaskModel, Timer.Abstractions.StopTaskCommand>());
-            var stopCommand = AutoMapper.Mapper.Map<TaskModel, Timer.Abstractions.StopTaskCommand>(task);
+            var stopCommand = _mapper.Map<TaskModel, Timer.Abstractions.StopTaskCommand>(task);
             businessLayerCommandManager.AddCommand(stopCommand);
 
             return Ok();
@@ -87,8 +89,7 @@ namespace WebApi.Controllers
             if (task == null)
                 return BadRequest();
 
-            AutoMapper.Mapper.Initialize(cfg => cfg.CreateMap<TaskModel, Timer.Abstractions.InterruptCommand>());
-            var interruptCommand = AutoMapper.Mapper.Map<TaskModel, Timer.Abstractions.InterruptCommand>(task);
+            var interruptCommand = _mapper.Map<TaskModel, Timer.Abstractions.InterruptCommand>(task);
             businessLayerCommandManager.AddCommand(interruptCommand);
 
             return Ok();

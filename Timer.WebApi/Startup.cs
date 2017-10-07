@@ -12,6 +12,8 @@ using MJNsoft.Base.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Moq;
 using MJNsoft.Base.Log.Abstractions;
+using Timer;
+using Timer.WebApi;
 
 namespace WebApi
 {
@@ -35,8 +37,15 @@ namespace WebApi
             _loggerMock.Setup(m => m.LogDebug(It.IsAny<string>())).Callback<string>(message => System.Diagnostics.Debug.WriteLine(message));
 
             IoC.ServiceCollection.AddSingleton<ILoggerProvider>(_loggerProviderMock.Object);
+            
+            IoC.ServiceCollection.Add(services);
+            IoC.ServiceCollection.AddMvc();
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new AutoMapperProfileConfiguration());
+            });
 
-
+            var mapper = config.CreateMapper();
 
             // ********************
             // Setup CORS
@@ -56,7 +65,10 @@ namespace WebApi
                 options.AddPolicy("SiteCorsPolicy", corsBuilder.Build());
             });
 
-            //IoC.ServiceCollection.AddCors();
+            services.AddSingleton(mapper);
+
+            IoC.ServiceCollection.Add(services);
+            IoC.ServiceCollection.AddMvc();
 
 
             IoC.ServiceCollection.Add(services);

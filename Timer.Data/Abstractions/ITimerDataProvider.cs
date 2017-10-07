@@ -1,6 +1,6 @@
 ﻿using MJNsoft.Base.Database.Abstractions;
 
-namespace Timer.Data
+namespace Timer.Data.Abstractions
 {
     public interface ITimerDataProvider
     {

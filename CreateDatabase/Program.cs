@@ -14,7 +14,7 @@ namespace CreateDatabase
 
             _dbAdmistrator = IoC.Services.GetService<IPostgresAdministrator>();
 
-            _dbAdmistrator.CreateDatabase("127.0.0.1", 5432, "Timer", "postgres", "", "dba", "sql");
+            _dbAdmistrator.CreateDatabase("127.0.0.1", 6432, "Timer", "postgres", "", "dba", "sql");
         }
 
     }
