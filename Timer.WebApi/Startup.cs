@@ -37,10 +37,7 @@ namespace WebApi
             _loggerMock.Setup(m => m.LogDebug(It.IsAny<string>())).Callback<string>(message => System.Diagnostics.Debug.WriteLine(message));
 
             IoC.ServiceCollection.AddSingleton<ILoggerProvider>(_loggerProviderMock.Object);
-
-            IoC.ServiceCollection.Add(services);
-            IoC.ServiceCollection.AddMvc();
-
+            
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new AutoMapperProfileConfiguration());
@@ -63,12 +60,10 @@ namespace WebApi
                 options.AddPolicy("SiteCorsPolicy", corsBuilder.Build());
             });
 
-            //IoC.ServiceCollection.AddCors();
-
             services.AddSingleton(mapper);
 
-            // Add framework services.
-            services.AddMvc();
+            IoC.ServiceCollection.Add(services);
+            IoC.ServiceCollection.AddMvc();
 
             return IoC.Services;
         }
