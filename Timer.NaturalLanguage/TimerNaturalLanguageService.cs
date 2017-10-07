@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using Timer.Abstractions;
@@ -83,6 +84,13 @@ namespace Timer.NaturalLanguage
             JObject commandAsLanguage = JObject.Parse(json);
 
             var intent = commandAsLanguage["intents"].First.Value<string>("intent");
+            var scoreAsString = commandAsLanguage["intents"].First.Value<string>("score");
+            var score = double.Parse(scoreAsString, CultureInfo.InvariantCulture);
+
+            if (score < 0.9)
+            {
+                throw new Exception("Unsicherheit: " + score);
+            }
 
             //var incident = GetEntity(commandAsLanguage, "Incident");
 
@@ -154,7 +162,7 @@ namespace Timer.NaturalLanguage
                 var data = response.Result.Content.ReadAsStringAsync();
                 data.Wait();
 
-                Console.WriteLine(data.Result);
+                //Console.WriteLine(data.Result);
                 return data.Result;
             }
         }
