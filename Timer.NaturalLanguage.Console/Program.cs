@@ -73,6 +73,7 @@ namespace Timer.NaturalLanguage.Console
         // This method gets called by the runtime. Use this method to add services to the container.
         public static IServiceProvider ConfigureServices()
         {
+            // use type to load assembly for IoC
             var type = typeof(IPostgresAdministrator);
             var assembly = type.Assembly;
 

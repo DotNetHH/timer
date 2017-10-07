@@ -10,9 +10,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MJNsoft.Base.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using MJNsoft.Base.Database.Postgres.Abstractions;
 using Moq;
 using MJNsoft.Base.Log.Abstractions;
 using Timer;
+using Timer.Abstractions;
 using Timer.WebApi;
 
 namespace WebApi
@@ -32,6 +34,10 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            // use type to load assembly for IoC
+            var type = typeof(IPostgresAdministrator);
+            var assembly = type.Assembly;
+
             _loggerProviderMock.Setup(m => m.GetLogger(It.IsAny<string>())).Returns(_loggerMock.Object);
             _loggerProviderMock.Setup(m => m.GetLogger(It.IsAny<Type>())).Returns(_loggerMock.Object);
             _loggerMock.Setup(m => m.LogDebug(It.IsAny<string>())).Callback<string>(message => System.Diagnostics.Debug.WriteLine(message));
