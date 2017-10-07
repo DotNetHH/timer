@@ -76,7 +76,7 @@ namespace WebApi.Controllers
         /// This method accepts JSON object as parameter that contains UTC TimeStamp at least. Further properties may follow.
         /// </summary>
         /// <param name="jsonTask">Task object as JSON, containing UTC Timestamp at least</param>
-        [HttpPost]
+        [HttpPost("interrupt")]
         public ActionResult Interrupt([FromBody] TaskModel task)
         {
             if (task == null)
