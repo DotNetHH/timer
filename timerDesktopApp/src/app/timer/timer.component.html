@@ -1,6 +1,7 @@
 
-<md-tab-group>
-  <md-tab label="Timer">
+<mat-tab-group>
+  <mat-tab label="Timer">
+    <br><br>
     <div>
       <button mat-raised-button (click)="onClick()">{{buttonText}}</button>
     </div>
@@ -8,8 +9,8 @@
       <br><br>
       <mat-spinner mode="indeterminate" *ngIf="state"></mat-spinner>
     </div>
-  </md-tab>
-  <md-tab label="Report">
-
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+  <mat-tab label="Report">
+    <app-report></app-report>
+  </mat-tab>
+</mat-tab-group>

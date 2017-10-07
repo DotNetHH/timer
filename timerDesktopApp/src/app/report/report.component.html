@@ -1,3 +1,10 @@
-<p>
-  report works!
-</p>
+
+<br>
+<br>
+<mat-list>
+  <mat-list-item *ngFor="let task of tasks">
+    Description: {{task.description}}<br>
+    Ticket: {{task.ticketId}}
+    Time: {{task.timeStamp}}
+  </mat-list-item>
+</mat-list>

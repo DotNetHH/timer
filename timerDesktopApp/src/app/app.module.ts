@@ -10,6 +10,7 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import { TimerComponent } from './timer/timer.component';
 import { ReportComponent } from './report/report.component';
+import {TimerService} from './timer.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ReportComponent } from './report/report.component';
     MatListModule,
     MatTabsModule
   ],
-  providers: [],
+  providers: [TimerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

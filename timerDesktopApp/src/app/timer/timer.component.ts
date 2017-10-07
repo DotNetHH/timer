@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TimerService} from '../timer.service';
+import {Task} from '../Model/task.model';
 
 @Component({
   selector: 'app-timer',
@@ -13,7 +15,7 @@ export class TimerComponent implements OnInit {
   stopTime: number;
   elapsedTime: number;
 
-  constructor() { }
+  constructor(private timerService: TimerService) { }
 
   ngOnInit() {
     this.state = false;
@@ -33,6 +35,12 @@ export class TimerComponent implements OnInit {
       this.elapsedTime = this.stopTime - this.startTime;
 
       console.log('the elapsed time is: ' + this.elapsedTime + 'ms');
+
+      this.timerService.createTask({
+        description: 'a new Task',
+        ticketId: 'ticket',
+        timeStamp: Date.now()
+      });
     }
   }
 

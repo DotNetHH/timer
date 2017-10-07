@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TimerService} from '../timer.service';
+import {Task} from '../Model/task.model';
 
 @Component({
   selector: 'app-report',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportComponent implements OnInit {
 
-  constructor() { }
+  tasks: Task[];
+
+  constructor(private timerService: TimerService) { }
 
   ngOnInit() {
+    this.timerService.getTasks().subscribe(
+      response => this.tasks = response.json()
+    );
   }
-
 }
