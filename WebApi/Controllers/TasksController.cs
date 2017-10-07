@@ -11,21 +11,21 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class TasksController : Controller
     {
-        // GET: api/values
+        // GET: api/tasks
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
+        // GET api/tasks/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
+        // POST api/tasks
         /// <summary>
         /// This method starts a task.
         /// This method accepts JSON object as parameter that contains UTC TimeStamp at least. Further properties may follow.
@@ -37,7 +37,7 @@ namespace WebApi.Controllers
             
         }
 
-        // POST api/values
+        // POST api/tasks
         /// <summary>
         /// This method stops a task.
         /// This method accepts JSON object as parameter that contains UTC TimeStamp at least. Further properties may follow.
