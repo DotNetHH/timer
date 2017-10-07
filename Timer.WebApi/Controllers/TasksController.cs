@@ -12,6 +12,11 @@ namespace WebApi.Controllers
     {
         private Timer.Abstractions.ICommandManager businessLayerCommandManager;
 
+        public TasksController(Timer.Abstractions.ICommandManager commandManager)
+        {
+            this.businessLayerCommandManager = commandManager;
+        }
+
         // GET: api/tasks
         [HttpGet]
         public IEnumerable<TaskModel> Get()
