@@ -12,6 +12,8 @@ using MJNsoft.Base.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Moq;
 using MJNsoft.Base.Log.Abstractions;
+using Timer;
+using Timer.WebApi;
 
 namespace WebApi
 {
@@ -39,6 +41,12 @@ namespace WebApi
             IoC.ServiceCollection.Add(services);
             IoC.ServiceCollection.AddMvc();
 
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new AutoMapperProfileConfiguration());
+            });
+
+            var mapper = config.CreateMapper();
 
             // ********************
             // Setup CORS
@@ -56,6 +64,11 @@ namespace WebApi
             });
 
             //IoC.ServiceCollection.AddCors();
+
+            services.AddSingleton(mapper);
+
+            // Add framework services.
+            services.AddMvc();
 
             return IoC.Services;
         }
