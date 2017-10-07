@@ -4,5 +4,5 @@ services:
   webapi:
     image: webapi
     build:
-      context: ./WebApi
+      context: ./Timer.WebApi
       dockerfile: Dockerfile
