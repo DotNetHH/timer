@@ -1,14 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 using WebApi.Models;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebApi.Controllers
 {
+    [EnableCors("SiteCorsPolicy")]
     [Route("api/[controller]")]
     public class TasksController : Controller
     {
@@ -20,7 +18,7 @@ namespace WebApi.Controllers
         {
             return new List<TaskModel>()
             {
-                new TaskModel () { DateTimeUtc = DateTime.Now }
+                new TaskModel () { DateTimeUtc = DateTime.Now, Description = "War voll fleißig am Coden, Testen, Deployen", Ticket = "ABC-1234" }
             };
         }
 
@@ -31,70 +29,58 @@ namespace WebApi.Controllers
             return "value";
         }
 
-        // POST api/tasks
+        // POST api/tasks/start
         /// <summary>
         /// This method starts a task.
         /// This method accepts JSON object as parameter that contains UTC TimeStamp at least. Further properties may follow.
         /// </summary>
         /// <param name="jsonTask">Task object as JSON, containing UTC Timestamp at least</param>
         [HttpPost]
-        public void Start([FromBody] TaskModel task)
+        public ActionResult Start([FromBody] TaskModel task)
         {
             if (task == null)
-                throw new ArgumentNullException();
+                return BadRequest();
 
-            businessLayerCommandManager.AddCommand(
-                new Timer.Abstractions.StartTaskCommand()
-                    {
-                        TimeStamp = task.DateTimeUtc,
-                        Description = task.Description,
-                        TicketId = task.Ticket
-                    }
-            );
+            var startCommand = AutoMapper.Mapper.Map<TaskModel, Timer.Abstractions.StartTaskCommand>(task);
+            businessLayerCommandManager.AddCommand(startCommand);
+
+            return Ok();
         }
 
-        // POST api/tasks
+        // POST api/tasks/stop
         /// <summary>
         /// This method stops a task.
         /// This method accepts JSON object as parameter that contains UTC TimeStamp at least. Further properties may follow.
         /// </summary>
         /// <param name="jsonTask">Task object as JSON, containing UTC Timestamp at least</param>
         [HttpPost]
-        public void Stop([FromBody] TaskModel task)
+        public ActionResult Stop([FromBody] TaskModel task)
         {
             if (task == null)
-                throw new ArgumentNullException();
+                return BadRequest();
 
-            businessLayerCommandManager.AddCommand(
-                new Timer.Abstractions.StopTaskCommand()
-                    {
-                        TimeStamp = task.DateTimeUtc,
-                        Description = task.Description,
-                        TicketId = task.Ticket
-                    }
-            );
+            var stopCommand = AutoMapper.Mapper.Map<TaskModel, Timer.Abstractions.StopTaskCommand>(task);
+            businessLayerCommandManager.AddCommand(stopCommand);
+
+            return Ok();
         }
 
-        // POST api/tasks
+        // POST api/tasks/interrupt
         /// <summary>
         /// This method interrupts a task. When the interrupt is terminated, the original task continues.
         /// This method accepts JSON object as parameter that contains UTC TimeStamp at least. Further properties may follow.
         /// </summary>
         /// <param name="jsonTask">Task object as JSON, containing UTC Timestamp at least</param>
         [HttpPost]
-        public void Interrupt([FromBody] TaskModel task)
+        public ActionResult Interrupt([FromBody] TaskModel task)
         {
             if (task == null)
-                throw new ArgumentNullException();
+                return BadRequest();
 
-            businessLayerCommandManager.AddCommand(
-                new Timer.Abstractions.InterruptCommand()
-                    {
-                        TimeStamp = task.DateTimeUtc,
-                        Description = task.Description,
-                        TicketId = task.Ticket
-                    }
-            );
+            var interruptCommand = AutoMapper.Mapper.Map<TaskModel, Timer.Abstractions.InterruptCommand>(task);
+            businessLayerCommandManager.AddCommand(interruptCommand);
+
+            return Ok();
         }
     }
 }

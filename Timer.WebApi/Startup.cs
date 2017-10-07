@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,24 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+
+            // ********************
+            // Setup CORS
+            // ********************
+            var corsBuilder = new CorsPolicyBuilder();
+            corsBuilder.AllowAnyHeader();
+            corsBuilder.AllowAnyMethod();
+            corsBuilder.AllowAnyOrigin(); // For anyone access.
+            //corsBuilder.WithOrigins("http://localhost:56573"); // for a specific url. Don't add a forward slash on the end!
+            corsBuilder.AllowCredentials();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("SiteCorsPolicy", corsBuilder.Build());
+            });
+
+            //services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +54,7 @@ namespace WebApi
             }
 
             app.UseMvc();
+            app.UseCors("SiteCorsPolicy");
         }
     }
 }
