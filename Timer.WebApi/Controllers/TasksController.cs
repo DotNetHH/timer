@@ -44,7 +44,12 @@ namespace WebApi.Controllers
                 throw new ArgumentNullException();
 
             businessLayerCommandManager.AddCommand(
-                new Timer.Abstractions.StartTaskCommand() { TimeStamp = task.DateTimeUtc }
+                new Timer.Abstractions.StartTaskCommand()
+                    {
+                        TimeStamp = task.DateTimeUtc,
+                        Description = task.Description,
+                        TicketId = task.Ticket
+                    }
             );
         }
 
@@ -61,7 +66,12 @@ namespace WebApi.Controllers
                 throw new ArgumentNullException();
 
             businessLayerCommandManager.AddCommand(
-                new Timer.Abstractions.StopTaskCommand() { TimeStamp = task.DateTimeUtc }
+                new Timer.Abstractions.StopTaskCommand()
+                    {
+                        TimeStamp = task.DateTimeUtc,
+                        Description = task.Description,
+                        TicketId = task.Ticket
+                    }
             );
         }
 
@@ -78,7 +88,12 @@ namespace WebApi.Controllers
                 throw new ArgumentNullException();
 
             businessLayerCommandManager.AddCommand(
-                new Timer.Abstractions.InterruptCommand() { TimeStamp = task.DateTimeUtc }
+                new Timer.Abstractions.InterruptCommand()
+                    {
+                        TimeStamp = task.DateTimeUtc,
+                        Description = task.Description,
+                        TicketId = task.Ticket
+                    }
             );
         }
     }

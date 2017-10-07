@@ -8,5 +8,7 @@ namespace WebApi.Models
     public class TaskModel
     {
         public DateTime DateTimeUtc { get; set; }
+        public string Ticket { get; set; }
+        public string Description { get; set; }
     }
 }
