@@ -6,3 +6,7 @@ services:
     build:
       context: ./Timer.WebApi
       dockerfile: Dockerfile
+  postgres:
+    image: postgres
+    ports:
+      - "6432:5432"
