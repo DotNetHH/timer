@@ -1,0 +1,21 @@
+﻿.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-default .navbar-nav > li > a.logout,
+ .navbar-default .navbar-nav > li > a.login {
+    display: inline-block;
+}
+
+.navbar-default,
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #ffffff;
+}
+
+.header-bar {
+    height: 50px;
+    /*background-image: url("/assets/header-image.jpg");*/
+    background-color: #006494;
+    background-size:cover;
+}
