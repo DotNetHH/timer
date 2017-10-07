@@ -11,6 +11,9 @@
   <ion-list>
    <ion-item *ngFor="let task of tasks">
       {{ task.dateTimeUtc | date:'dd.MM.yy hh:mm' }}
+      <br/>
+      {{ task.description }}
+
     </ion-item>
   </ion-list>
 
