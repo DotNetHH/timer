@@ -1,16 +1,18 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Timer.Business.Abstractions;
+using MJNsoft.Base.DependencyInjection.Abstractions;
 
 namespace Timer.NaturalLanguage
 {
+    [AutoRegister]
     public class SentenceHandler : ISentenceHandler
     {
-        private readonly TimerNaturalLanguageService _naturalLanguageService;
+        private readonly ITimerNaturalLanguageService _naturalLanguageService;
         private readonly ICommandManager _commandManager;
         private readonly IReaderManager _readerManager;
 
-        public SentenceHandler(TimerNaturalLanguageService naturalLanguageService, ICommandManager commandManager, IReaderManager readerManager)
+        public SentenceHandler(ITimerNaturalLanguageService naturalLanguageService, ICommandManager commandManager, IReaderManager readerManager)
         {
             _naturalLanguageService = naturalLanguageService;
             _commandManager = commandManager;
@@ -63,6 +65,8 @@ namespace Timer.NaturalLanguage
 
         private void Show()
         {
+            Console.WriteLine("Deine Zeiten für heute: {0}", _readerManager.GetAllHoursForToday());
+            
             foreach (var command in this._readerManager.GetAll())
             {
                 System.Console.WriteLine(command.GetType().Name + " " + JsonConvert.SerializeObject(command));
