@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
-using Timer.Abstractions;
-using Timer.Data;
+using Timer.Business.Abstractions;
 
 namespace Timer.NaturalLanguage
 {

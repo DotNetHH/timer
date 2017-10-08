@@ -11,7 +11,7 @@ namespace Timer.Data
     {
         public Guid Id { get; } = new Guid("76DFD27B-93E0-4B32-8C1C-D72757F2D599");
         public string Name { get; } = "Timer";
-        public int Version { get; set; } = 2; // Bei Änderungen der Struktur hochzählen
+        public int Version { get; set; } = 3; // Bei Änderungen der Struktur hochzählen
 
         public TimerDbContext(string configurationName)
           : base(configurationName)
@@ -45,6 +45,9 @@ namespace Timer.Data
                     break;
                 case 2:
                     updates.Add("ALTER TABLE dba.\"Command\" ADD \"Type\" TEXT NOT NULL");
+                    break;
+                case 3:
+                    updates.Add("ALTER TABLE dba.\"Command\" DROP \"Type\"");
                     break;
             }
         }

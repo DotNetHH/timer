@@ -1,5 +1,6 @@
 ﻿using MJNsoft.Base.Database.Abstractions;
 using MJNsoft.Base.DependencyInjection.Abstractions;
+using Newtonsoft.Json;
 using Timer.Data.Abstractions;
 
 namespace Timer.Data
@@ -7,11 +8,20 @@ namespace Timer.Data
     [AutoRegister]
     internal class TimerDataProvider : ITimerDataProvider
     {
-        public IRepository<CommandEntity> CommandRepository => _timerDbContext;
-        private IRepositoryWorker<CommandEntity, TimerDbContext> _timerDbContext;
-        public TimerDataProvider(IRepositoryWorker<CommandEntity, TimerDbContext> timerDbContext)
+        public IRepository<CommandEntity> CommandRepository => _commandRepositoryWorker;
+        private IRepositoryWorker<CommandEntity, TimerDbContext> _commandRepositoryWorker;
+        public TimerDataProvider(IRepositoryWorker<CommandEntity, TimerDbContext> commandRepositoryWorker)
         {
-            _timerDbContext = timerDbContext;
+            _commandRepositoryWorker = commandRepositoryWorker;
+        }
+
+        public void AddEvent(TimerEvent timerEvent)
+        {
+            _commandRepositoryWorker.Insert(new CommandEntity
+            {
+                TimeStamp = timerEvent.TimeStamp,
+                Command = JsonConvert.SerializeObject(timerEvent)
+            });
         }
 
         //private void Test()

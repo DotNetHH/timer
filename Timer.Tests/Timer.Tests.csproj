@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Timer.Data\Timer.Data.csproj" />
-    <ProjectReference Include="..\Timer\Timer.csproj" />
   </ItemGroup>
 
 </Project>

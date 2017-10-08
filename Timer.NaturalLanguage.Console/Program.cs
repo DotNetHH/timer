@@ -5,6 +5,8 @@ using MJNsoft.Base.Database.Postgres.Abstractions;
 using MJNsoft.Base.DependencyInjection;
 using MJNsoft.Base.Log.Abstractions;
 using Moq;
+using Newtonsoft.Json;
+using Timer.Business.Abstractions;
 
 namespace Timer.NaturalLanguage.Console
 {

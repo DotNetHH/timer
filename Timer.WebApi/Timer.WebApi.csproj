@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Timer\Timer.csproj" />
+    <ProjectReference Include="..\Timer.Business\Timer.Business.csproj" />
   </ItemGroup>
 
   <ItemGroup>
