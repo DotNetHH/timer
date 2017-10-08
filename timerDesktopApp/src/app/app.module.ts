@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import { TimerComponent } from './timer/timer.component';
 import { ReportComponent } from './report/report.component';
 import {TimerService} from './timer.service';
+import {TasksApi} from './api/TasksApi';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import {TimerService} from './timer.service';
     MatListModule,
     MatTabsModule
   ],
-  providers: [TimerService],
+  providers: [
+    TimerService,
+    TasksApi
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

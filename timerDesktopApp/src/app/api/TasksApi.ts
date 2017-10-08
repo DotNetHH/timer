@@ -28,7 +28,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class TasksApi {
 
-    protected basePath = 'http://localhost:5000';
+    protected basePath = 'http://localhost:8081';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
