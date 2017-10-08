@@ -41,6 +41,8 @@ namespace WebApi
             var type = typeof(IPostgresAdministrator);
             var assembly = type.Assembly;
 
+            var timerDataDummy = new Timer.Data.Dummy();
+
             _loggerProviderMock.Setup(m => m.GetLogger(It.IsAny<string>())).Returns(_loggerMock.Object);
             _loggerProviderMock.Setup(m => m.GetLogger(It.IsAny<Type>())).Returns(_loggerMock.Object);
             _loggerMock.Setup(m => m.LogDebug(It.IsAny<string>())).Callback<string>(message => System.Diagnostics.Debug.WriteLine(message));

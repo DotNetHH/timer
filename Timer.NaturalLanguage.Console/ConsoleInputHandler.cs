@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MJNsoft.Base.DependencyInjection.Abstractions;
+using System;
 
 namespace Timer.NaturalLanguage.Console
 {
+    [AutoRegister]
     public class ConsoleInputHandler
     {
         private readonly ISentenceHandler _sentenceHandler;

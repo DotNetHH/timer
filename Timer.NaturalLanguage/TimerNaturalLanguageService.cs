@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using MJNsoft.Base.DependencyInjection.Abstractions;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,6 +9,7 @@ using Timer.Business.Abstractions;
 
 namespace Timer.NaturalLanguage
 {
+    [AutoRegister]
     public class TimerNaturalLanguageService
     {
         private string _url = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/50980763-63b2-42c9-9abf-d38e0acc0c32?subscription-key=2563750847fa4ae4919bde9f07acf981&timezoneOffset=0&verbose=true&q=";

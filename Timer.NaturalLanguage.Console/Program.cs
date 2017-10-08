@@ -43,9 +43,9 @@ namespace Timer.NaturalLanguage.Console
 
             IoC.ServiceCollection.AddSingleton<ILoggerProvider>(_loggerProviderMock.Object);
 
-            IoC.ServiceCollection.AddSingleton<TimerNaturalLanguageService>();
-            IoC.ServiceCollection.AddSingleton<ISentenceHandler, SentenceHandler>();
-            IoC.ServiceCollection.AddSingleton<ConsoleInputHandler>();
+            //IoC.ServiceCollection.AddSingleton<TimerNaturalLanguageService>();
+            //IoC.ServiceCollection.AddSingleton<ISentenceHandler, SentenceHandler>();
+            //IoC.ServiceCollection.AddSingleton<ConsoleInputHandler>();
 
             return IoC.Services;
         }
