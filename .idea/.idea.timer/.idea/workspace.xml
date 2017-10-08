@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1251e3b-806a-48b8-87d3-96a306535cfd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/timerDesktopApp/src/app/Model/task.model.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timerDesktopApp/src/app/app.module.ts" afterPath="$PROJECT_DIR$/timerDesktopApp/src/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timerDesktopApp/src/app/report/report.component.html" afterPath="$PROJECT_DIR$/timerDesktopApp/src/app/report/report.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timerDesktopApp/src/app/report/report.component.ts" afterPath="$PROJECT_DIR$/timerDesktopApp/src/app/report/report.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timerDesktopApp/src/app/timer/timer.component.html" afterPath="$PROJECT_DIR$/timerDesktopApp/src/app/timer/timer.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.timer/.idea/contentModel.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.timer/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.timer/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.timer/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.timer/riderModule.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Timer.WebApi/.vscode/launch.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Timer.WebApi/.vscode/tasks.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Timer.WebApi/Startup.cs" afterPath="$PROJECT_DIR$/Timer.WebApi/Startup.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Timer.WebApi/Timer.WebApi.csproj" afterPath="$PROJECT_DIR$/Timer.WebApi/Timer.WebApi.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timerDesktopApp/src/app/timer.service.ts" afterPath="$PROJECT_DIR$/timerDesktopApp/src/app/timer.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timerDesktopApp/src/app/timer/timer.component.ts" afterPath="$PROJECT_DIR$/timerDesktopApp/src/app/timer/timer.component.ts" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,12 +29,12 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="TasksController.cs" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="TasksController.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Timer.WebApi/Controllers/TasksController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="66" column="55" lean-forward="false" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+            <state relative-caret-position="176">
+              <caret line="53" column="36" lean-forward="false" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
               <folding>
                 <marker date="1507392868838" expanded="false" signature="6:157" ph="..." />
                 <marker date="1507392868838" expanded="true" signature="187:3668" ph="{...}" />
@@ -49,10 +54,34 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Startup.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Timer.WebApi/Startup.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="666">
+              <caret line="55" column="66" lean-forward="true" selection-start-line="55" selection-start-column="66" selection-end-line="55" selection-end-column="66" />
+              <folding>
+                <marker date="1507455228402" expanded="false" signature="6:637" ph="..." />
+                <marker date="1507455228402" expanded="true" signature="655:4008" ph="{...}" />
+                <marker date="1507455228402" expanded="true" signature="682:4006" ph="{...}" />
+                <marker date="1507455228402" expanded="true" signature="741:804" ph="{...}" />
+                <marker date="1507455228402" expanded="true" signature="1194:3230" ph="{...}" />
+                <marker date="1507455228402" expanded="true" signature="1276:1390" ph="{...}" />
+                <marker date="1507455228402" expanded="true" signature="2168:2266" ph="{...}" />
+                <marker date="1507455228402" expanded="true" signature="2331:2416" ph="/* Setup CORS ... */" />
+                <marker date="1507455228402" expanded="true" signature="2634:2794" ph="/* corsBuilder.WithOrigins(&quot;http://localhost:56573&quot;); // for a specific url. Don't add a forward slash on the end ... */" />
+                <marker date="1507455228402" expanded="true" signature="2848:2950" ph="{...}" />
+                <marker date="1507455228402" expanded="true" signature="3418:4000" ph="{...}" />
+                <marker date="1507455228402" expanded="true" signature="3465:3542" ph="{...}" />
+                <marker date="1507455228402" expanded="true" signature="3814:3917" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="StartTaskCommand.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Timer/Abstractions/StartTaskCommand.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
+            <state relative-caret-position="0">
               <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
               <folding>
                 <marker date="1507381808921" expanded="true" signature="29:95" ph="{...}" />
@@ -65,7 +94,7 @@
       <file leaf-file-name="TaskModel.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Timer.WebApi/Models/TaskModel.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
+            <state relative-caret-position="0">
               <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding>
                 <marker date="1507392868838" expanded="false" signature="6:96" ph="..." />
@@ -82,6 +111,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Timer.WebApi/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Timer/Abstractions/StartTaskCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Timer.WebApi/Models/TaskModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Timer.WebApi/Controllers/TasksController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -90,6 +120,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Timer/Abstractions/StartTaskCommand.cs" />
+        <option value="$PROJECT_DIR$/Timer.WebApi/Controllers/TasksController.cs" />
+        <option value="$PROJECT_DIR$/Timer.WebApi/Startup.cs" />
       </list>
     </option>
   </component>
@@ -98,6 +130,11 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="ProjectFrameBounds">
     <option name="width" value="1920" />
@@ -118,7 +155,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="SolutionExplorer">
         <subPane>
           <PATH>
@@ -127,7 +163,7 @@
               <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="timer (10 projects)" />
+              <option name="myItemId" value="timer (9 projects)" />
               <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -141,25 +177,7 @@
               <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="timer (10 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Timer.WebApi" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="timer (10 projects)" />
+              <option name="myItemId" value="timer (9 projects)" />
               <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
@@ -167,12 +185,13 @@
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="true" />
-    <property name="settings.editor.selected.configurable" value="RiderNuGetOptionsPageId" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -231,6 +250,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -287,11 +312,13 @@
       <updated>1507388134554</updated>
       <workItem from="1507388137168" duration="49000" />
       <workItem from="1507388349293" duration="2231000" />
+      <workItem from="1507447527837" duration="206000" />
+      <workItem from="1507449948526" duration="1855000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2280000" />
+    <option name="totallyTimeSpent" value="4341000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -314,9 +341,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289358" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.246875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13854167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944345" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3992964" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -326,6 +352,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944345" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -338,44 +365,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Timer.WebApi/Controllers/TasksController.cs</url>
-          <line>70</line>
-          <properties startOffset="2613" endOffset="2667" documentPath="$PROJECT_DIR$/Timer.WebApi/Controllers/TasksController.cs" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Timer.WebApi/Models/TaskModel.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <marker date="1507392868838" expanded="false" signature="6:96" ph="..." />
-            <marker date="1507392868838" expanded="true" signature="127:311" ph="{...}" />
-            <marker date="1507392868838" expanded="true" signature="156:309" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Timer/Abstractions/StartTaskCommand.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding>
-            <marker date="1507381808921" expanded="true" signature="29:95" ph="{...}" />
-            <marker date="1507381808921" expanded="true" signature="81:93" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Timer.WebApi/Controllers/TasksController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
+        <state relative-caret-position="915">
           <caret line="66" column="55" lean-forward="false" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
           <folding>
             <marker date="1507392868838" expanded="false" signature="6:157" ph="..." />
@@ -391,6 +388,141 @@
             <marker date="1507392868838" expanded="true" signature="2590:2865" ph="{...}" />
             <marker date="1507392868838" expanded="true" signature="2911:3277" ph="/// This method interrupts a task. When the interrupt is terminated, the original task continues. ... " />
             <marker date="1507392868838" expanded="true" signature="3374:3660" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timer/Abstractions/StartTaskCommand.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding>
+            <marker date="1507381808921" expanded="true" signature="29:95" ph="{...}" />
+            <marker date="1507381808921" expanded="true" signature="81:93" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timer.WebApi/Models/TaskModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <marker date="1507392868838" expanded="false" signature="6:96" ph="..." />
+            <marker date="1507392868838" expanded="true" signature="127:311" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="156:309" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timer.WebApi/Controllers/TasksController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1507392868838" expanded="false" signature="6:157" ph="..." />
+            <marker date="1507392868838" expanded="true" signature="187:3668" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="302:3666" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="541:654" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="743:1320" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="807:1309" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="1408:1456" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="1498:1797" ph="/// This method starts a task. ... " />
+            <marker date="1507392868838" expanded="true" signature="1886:2164" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="2205:2503" ph="/// This method stops a task. ... " />
+            <marker date="1507392868838" expanded="true" signature="2590:2865" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="2911:3277" ph="/// This method interrupts a task. When the interrupt is terminated, the original task continues. ... " />
+            <marker date="1507392868838" expanded="true" signature="3374:3660" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timer/Abstractions/StartTaskCommand.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding>
+            <marker date="1507381808921" expanded="true" signature="29:95" ph="{...}" />
+            <marker date="1507381808921" expanded="true" signature="81:93" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timer.WebApi/Models/TaskModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <marker date="1507392868838" expanded="false" signature="6:96" ph="..." />
+            <marker date="1507392868838" expanded="true" signature="127:311" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="156:309" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timer.WebApi/Models/TaskModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <marker date="1507392868838" expanded="false" signature="6:96" ph="..." />
+            <marker date="1507392868838" expanded="true" signature="127:311" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="156:309" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timer/Abstractions/StartTaskCommand.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding>
+            <marker date="1507381808921" expanded="true" signature="29:95" ph="{...}" />
+            <marker date="1507381808921" expanded="true" signature="81:93" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timer.WebApi/Controllers/TasksController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="53" column="36" lean-forward="false" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+          <folding>
+            <marker date="1507392868838" expanded="false" signature="6:157" ph="..." />
+            <marker date="1507392868838" expanded="true" signature="187:3668" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="302:3666" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="541:654" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="743:1320" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="807:1309" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="1408:1456" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="1498:1797" ph="/// This method starts a task. ... " />
+            <marker date="1507392868838" expanded="true" signature="1886:2164" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="2205:2503" ph="/// This method stops a task. ... " />
+            <marker date="1507392868838" expanded="true" signature="2590:2865" ph="{...}" />
+            <marker date="1507392868838" expanded="true" signature="2911:3277" ph="/// This method interrupts a task. When the interrupt is terminated, the original task continues. ... " />
+            <marker date="1507392868838" expanded="true" signature="3374:3660" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Timer.WebApi/Startup.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="55" column="66" lean-forward="true" selection-start-line="55" selection-start-column="66" selection-end-line="55" selection-end-column="66" />
+          <folding>
+            <marker date="1507455228402" expanded="false" signature="6:637" ph="..." />
+            <marker date="1507455228402" expanded="true" signature="655:4008" ph="{...}" />
+            <marker date="1507455228402" expanded="true" signature="682:4006" ph="{...}" />
+            <marker date="1507455228402" expanded="true" signature="741:804" ph="{...}" />
+            <marker date="1507455228402" expanded="true" signature="1194:3230" ph="{...}" />
+            <marker date="1507455228402" expanded="true" signature="1276:1390" ph="{...}" />
+            <marker date="1507455228402" expanded="true" signature="2168:2266" ph="{...}" />
+            <marker date="1507455228402" expanded="true" signature="2331:2416" ph="/* Setup CORS ... */" />
+            <marker date="1507455228402" expanded="true" signature="2634:2794" ph="/* corsBuilder.WithOrigins(&quot;http://localhost:56573&quot;); // for a specific url. Don't add a forward slash on the end ... */" />
+            <marker date="1507455228402" expanded="true" signature="2848:2950" ph="{...}" />
+            <marker date="1507455228402" expanded="true" signature="3418:4000" ph="{...}" />
+            <marker date="1507455228402" expanded="true" signature="3465:3542" ph="{...}" />
+            <marker date="1507455228402" expanded="true" signature="3814:3917" ph="{...}" />
           </folding>
         </state>
       </provider>

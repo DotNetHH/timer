@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using MJNsoft.Base.Database.Postgres.Abstractions;
 using Moq;
 using MJNsoft.Base.Log.Abstractions;
+using Swashbuckle.AspNetCore.Swagger;
 using Timer.WebApi;
 
 namespace WebApi
@@ -32,6 +33,12 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            // register swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Timer API", Version = "v1" });
+            });
+            
             // use type to load assembly for IoC
             var type = typeof(IPostgresAdministrator);
             var assembly = type.Assembly;
@@ -89,6 +96,15 @@ namespace WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Timer V1");
+            });
 
             app.UseCors("SiteCorsPolicy");
             app.UseMvc();

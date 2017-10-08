@@ -36,7 +36,7 @@ export class TimerComponent implements OnInit {
 
       console.log('the elapsed time is: ' + this.elapsedTime + 'ms');
 
-      this.timerService.createTask({
+      this.timerService.stopTask({
         description: 'a new Task',
         ticketId: 'ticket',
         timeStamp: Date.now()

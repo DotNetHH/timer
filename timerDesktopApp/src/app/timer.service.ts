@@ -18,7 +18,15 @@ export class TimerService {
     return this.http.get(this.url);
   }
 
-  createTask(task: any) {
+  stopTask(task: any) {
+    this.http.post(this.url + '/stop', JSON.stringify(task), this.options).subscribe((response) => {
+      // post.['id'] = respone.json().id;
+      // this.posts.splice(0, 0, post);
+      console.log(response);
+    });
+  }
+
+  startTask(task: any) {
     this.http.post(this.url + '/stop', JSON.stringify(task), this.options).subscribe((response) => {
       // post.['id'] = respone.json().id;
       // this.posts.splice(0, 0, post);
