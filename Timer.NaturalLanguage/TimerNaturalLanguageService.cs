@@ -12,9 +12,9 @@ namespace Timer.NaturalLanguage
     {
         private string _url = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/50980763-63b2-42c9-9abf-d38e0acc0c32?subscription-key=2563750847fa4ae4919bde9f07acf981&timezoneOffset=0&verbose=true&q=";
 
-        public AnalysedSentence Analyse(string Sentence)
+        public AnalysedSentence Analyse(string sentence)
         {
-            var json = LoadJson(Sentence);
+            var json = LoadJson(sentence);
             #region debug
             var json2 = @"{
   'query': 'Erstelle eine Zeiterfassung von 12:23 bis 14:13 auf das Ticket INC134',
@@ -75,8 +75,8 @@ namespace Timer.NaturalLanguage
   ]
 }";
             #endregion
-            var command = Parse(json);
-            return command;
+            var analysedSentence = Parse(json);
+            return analysedSentence;
         }
 
         private AnalysedSentence Parse(string json)
@@ -102,19 +102,7 @@ namespace Timer.NaturalLanguage
             analysedSentence.Entities = ParseEntities(commandAsLanguage);
             analysedSentence.Score = score;
 
-
             return analysedSentence;
-            //switch (intent)
-            //{
-            //    case "CreareCompleteTimeRecording":
-            //        return BuildCreateCommand(commandAsLanguage);
-            //    case "StartTimeRecordingNow":
-            //        return BuildStart(commandAsLanguage);
-            //    case "StopTimeRecordingNow":
-            //        return BeginEnd(commandAsLanguage);
-            //}
-
-            //return null;
         }
 
         private static Dictionary<AnalysedSentenceEntity, string> ParseEntities(JObject commandAsLanguage)
@@ -139,51 +127,6 @@ namespace Timer.NaturalLanguage
             }
 
             return dictionary;
-        }
-
-        private WriterCommand BuildStart(JObject commandAsLanguage)
-        {
-            return new StartTaskCommand()
-            {
-                TimeStamp = DateTime.Now,
-                Description = GetEntity(commandAsLanguage, "Description"),
-                TicketId = GetEntity(commandAsLanguage, "Incident")
-            };
-        }
-
-        private WriterCommand BeginEnd(JObject commandAsLanguage)
-        {
-            return new StopTaskCommand()
-            {
-                TimeStamp = DateTime.Now,
-                Description = GetEntity(commandAsLanguage, "Description"),
-                TicketId = GetEntity(commandAsLanguage, "Incident")
-            };
-        }
-
-        private StartTaskCommand BuildCreateCommand(JObject commandAsLanguage)
-        {
-            var command = new StartTaskCommand();
-
-            var fromAsString = GetEntity(commandAsLanguage, "From");
-            if (!string.IsNullOrWhiteSpace(fromAsString))
-            {
-                var from = DateTime.Parse(fromAsString);
-                command.TimeStamp = from;
-            }
-
-            command.TicketId = GetEntity(commandAsLanguage, "Incident");
-
-            return command;
-        }
-
-        private string GetEntity(JObject commandAsLanguage, string Type)
-        {
-            var entity = (from e in commandAsLanguage["entities"]
-                          where (string)e["type"] == Type
-                          select (string)e["entity"]).FirstOrDefault();
-
-            return entity;
         }
 
         private string LoadJson(string Sentence)

@@ -63,6 +63,8 @@ namespace Timer.NaturalLanguage
 
         private void Show()
         {
+            Console.WriteLine("Deine Zeiten für heute: {0}", _readerManager.GetAllHoursForToday());
+            
             foreach (var command in this._readerManager.GetAll())
             {
                 System.Console.WriteLine(command.GetType().Name + " " + JsonConvert.SerializeObject(command));
