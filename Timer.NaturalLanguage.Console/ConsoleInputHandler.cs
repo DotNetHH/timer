@@ -4,7 +4,7 @@ using System;
 namespace Timer.NaturalLanguage.Console
 {
     [AutoRegister]
-    public class ConsoleInputHandler
+    public class ConsoleInputHandler : IConsoleInputHandler
     {
         private readonly ISentenceHandler _sentenceHandler;
 

@@ -8,11 +8,11 @@ namespace Timer.NaturalLanguage
     [AutoRegister]
     public class SentenceHandler : ISentenceHandler
     {
-        private readonly TimerNaturalLanguageService _naturalLanguageService;
+        private readonly ITimerNaturalLanguageService _naturalLanguageService;
         private readonly ICommandManager _commandManager;
         private readonly IReaderManager _readerManager;
 
-        public SentenceHandler(TimerNaturalLanguageService naturalLanguageService, ICommandManager commandManager, IReaderManager readerManager)
+        public SentenceHandler(ITimerNaturalLanguageService naturalLanguageService, ICommandManager commandManager, IReaderManager readerManager)
         {
             _naturalLanguageService = naturalLanguageService;
             _commandManager = commandManager;

@@ -18,7 +18,7 @@ namespace Timer.NaturalLanguage.Console
 
             try
             {
-                IoC.Services.GetService<ConsoleInputHandler>().Start();
+                IoC.Services.GetService<IConsoleInputHandler>().Start();
             }
             catch (Exception e)
             {
@@ -36,6 +36,7 @@ namespace Timer.NaturalLanguage.Console
             // use type to load assembly for IoC
             var type = typeof(IPostgresAdministrator);
             var assembly = type.Assembly;
+            var timerDataDummy = new Timer.Data.Dummy();
 
             _loggerProviderMock.Setup(m => m.GetLogger(It.IsAny<string>())).Returns(_loggerMock.Object);
             _loggerProviderMock.Setup(m => m.GetLogger(It.IsAny<Type>())).Returns(_loggerMock.Object);
