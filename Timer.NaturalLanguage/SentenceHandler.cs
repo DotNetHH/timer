@@ -1,9 +1,11 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Timer.Business.Abstractions;
+using MJNsoft.Base.DependencyInjection.Abstractions;
 
 namespace Timer.NaturalLanguage
 {
+    [AutoRegister]
     public class SentenceHandler : ISentenceHandler
     {
         private readonly TimerNaturalLanguageService _naturalLanguageService;
