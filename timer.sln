@@ -19,9 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timer.NaturalLanguage", "Ti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timer.NaturalLanguage.Tests", "Timer.NaturalLanguage.Tests\Timer.NaturalLanguage.Tests.csproj", "{CD2D2DD9-5B8E-4124-A219-51498C606462}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timer.NaturalLanguage.Console", "Timer.NaturalLanguage.Console\Timer.NaturalLanguage.Console.csproj", "{E3D6005F-5332-4569-B169-B3BFB7876F65}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timer.Tests", "Timer.Tests\Timer.Tests.csproj", "{EA88E9EC-CB82-4A07-928C-3DABAC96E3BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer.NaturalLanguage.Console", "Timer.NaturalLanguage.Console\Timer.NaturalLanguage.Console.csproj", "{E3D6005F-5332-4569-B169-B3BFB7876F65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,10 +63,6 @@ Global
 		{E3D6005F-5332-4569-B169-B3BFB7876F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3D6005F-5332-4569-B169-B3BFB7876F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3D6005F-5332-4569-B169-B3BFB7876F65}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA88E9EC-CB82-4A07-928C-3DABAC96E3BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA88E9EC-CB82-4A07-928C-3DABAC96E3BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA88E9EC-CB82-4A07-928C-3DABAC96E3BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA88E9EC-CB82-4A07-928C-3DABAC96E3BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
