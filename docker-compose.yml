@@ -6,9 +6,11 @@ services:
     build:
       context: ./Timer.WebApi
       dockerfile: Dockerfile
+    ports:
+      - "8081:80"
   postgres:
     image: postgres
     ports:
       - "6432:5432"
-    volumes:
-      - /c/Temp/postgres/var/lib/postgresql:/var/lib/postgresql
+    # volumes:
+     # - /c/Temp/postgres/var/lib/postgresql:/var/lib/postgresql

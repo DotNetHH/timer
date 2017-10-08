@@ -8,12 +8,12 @@ using Timer.Data.Abstractions;
 namespace Timer.Business
 {
     [AutoRegister]
-    internal class CommandManager : ICommandManager
+    internal class WriterCommandManager : ICommandManager
     {
         private ITimerDataProvider _timerDataProvider;
         private IDateTimeProvider _dateTimeProvider; 
 
-        public CommandManager(ITimerDataProvider timerDataProvider, IDateTimeProvider dateTimeProvider)
+        public WriterCommandManager(ITimerDataProvider timerDataProvider, IDateTimeProvider dateTimeProvider)
         {
             _timerDataProvider = timerDataProvider;
             _dateTimeProvider = dateTimeProvider;
@@ -47,15 +47,6 @@ namespace Timer.Business
                 Description = command.Description,
                 TicketId = command.TicketId
             });
-        }
-
-        public IEnumerable<TimerCommand> GetAll()
-        {
-            var result = new List<TimerCommand>();
-
-            //_timerDataProvider.CommandRepository.GetAll().ToList().ForEach(e=>result.Add((TimerCommand)JsonConvert.DeserializeObject(e.Command,GetType().Assembly.GetType(e.Type))));
-
-            return result;
         }
     }
 }

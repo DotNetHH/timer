@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Cors;
 using Timer.WebApi.Models;
+using Timer.Business.Abstractions;
+using System.Linq;
+using Timer.Data.Abstractions;
 
 namespace WebApi.Controllers
 {
@@ -11,13 +14,14 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class TasksController : Controller
     {
-        private Timer.Business.Abstractions.ICommandManager businessLayerCommandManager;
+        private Timer.Business.Abstractions.ICommandManager businessLayerWriterCommandManager;
+        private Timer.Business.Abstractions.IReaderManager businessLayerReaderManager;
         private readonly IMapper _mapper;
 
-        public TasksController(Timer.Business.Abstractions.ICommandManager commandManager,
-            IMapper mapper)
+        public TasksController(Timer.Business.Abstractions.ICommandManager commandManager, IMapper mapper, IReaderManager readerManager)
         {
-            this.businessLayerCommandManager = commandManager;
+            this.businessLayerWriterCommandManager = commandManager;
+            this.businessLayerReaderManager = readerManager;
             _mapper = mapper;
         }
 
@@ -25,20 +29,14 @@ namespace WebApi.Controllers
         [HttpGet]
         public IEnumerable<TaskModel> Get()
         {
-            return new List<TaskModel>()
-            {
-                new TaskModel () { TimeStamp = DateTime.Now, Description = "War voll fleißig am Coden, Testen, Deployen", TicketId = "ABC-1234" },
-                new TaskModel () { TimeStamp = DateTime.Now, Description = "Workshop", TicketId = "XYZ-666" },
-                new TaskModel () { TimeStamp = DateTime.Now, Description = "Telko", TicketId = "ZZZ-9876" },
-                new TaskModel () { TimeStamp = DateTime.Now, Description = "internes Training", TicketId = "ABC-1234" }
-            };
+            return businessLayerReaderManager.GetAll().Select(e => _mapper.Map<TimerEvent, TaskModel>(e));
         }
 
-        // GET api/tasks/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET api/tasks/today
+        [HttpGet("today")]
+        public string GetAllHoursForToday()
         {
-            return "value";
+            return businessLayerReaderManager.GetAllHoursForToday().ToString();
         }
 
         // POST api/tasks/start
@@ -54,7 +52,7 @@ namespace WebApi.Controllers
                 return BadRequest();
 
             var startCommand = _mapper.Map<TaskModel, Timer.Business.Abstractions.StartTaskCommand>(task);
-            businessLayerCommandManager.AddWriterCommand(startCommand);
+            businessLayerWriterCommandManager.AddWriterCommand(startCommand);
 
             return Ok();
         }
@@ -72,7 +70,7 @@ namespace WebApi.Controllers
                 return BadRequest();
 
             var stopCommand = _mapper.Map<TaskModel, Timer.Business.Abstractions.StopTaskCommand>(task);
-            businessLayerCommandManager.AddWriterCommand(stopCommand);
+            businessLayerWriterCommandManager.AddWriterCommand(stopCommand);
 
             return Ok();
         }
@@ -90,7 +88,7 @@ namespace WebApi.Controllers
                 return BadRequest();
 
             var interruptCommand = _mapper.Map<TaskModel, Timer.Business.Abstractions.InterruptTaskCommand>(task);
-            businessLayerCommandManager.AddWriterCommand(interruptCommand);
+            businessLayerWriterCommandManager.AddWriterCommand(interruptCommand);
 
             return Ok();
         }
