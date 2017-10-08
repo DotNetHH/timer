@@ -24,9 +24,7 @@ namespace Timer.NaturalLanguage.Console
                 throw;
             }
         }
-
-
-
+        
         private static Mock<ILoggerProvider> _loggerProviderMock = new Mock<ILoggerProvider>();
         private static Mock<ILogger> _loggerMock = new Mock<ILogger>();
 

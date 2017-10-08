@@ -13,7 +13,6 @@ namespace Timer.NaturalLanguage.Console
 
         public void Start()
         {
-
             System.Console.WriteLine("Zeiterfassung gestartet!");
             System.Console.WriteLine("Was möchten Sie tun?");
             System.Console.WriteLine("");
@@ -32,13 +31,6 @@ namespace Timer.NaturalLanguage.Console
                 {
                     isRunning = false;
                 }
-                //else if (sentence == "list")
-                //{
-                //    foreach (var command in commandManager.GetAll())
-                //    {
-                //        System.Console.WriteLine(command.GetType().Name + " " + JsonConvert.SerializeObject(command));
-                //    }
-                //}
                 else
                 {
                     try

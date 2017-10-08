@@ -88,7 +88,7 @@ namespace Timer.NaturalLanguage
             var scoreAsString = commandAsLanguage["intents"].First.Value<string>("score");
             var score = double.Parse(scoreAsString, CultureInfo.InvariantCulture);
 
-            if (score < 0.8)
+            if (score < 0.9)
             {
                 throw new Exception("Unsicherheit: " + score);
             }
@@ -124,7 +124,7 @@ namespace Timer.NaturalLanguage
 
             // alle type und entities sammeln
             var entitiesAsList = from e in commandAsLanguage["entities"]
-                                 select new { Key = (string)e["type"], Value = (string)e["type"] };
+                                 select new { Key = (string)e["type"], Value = (string)e["entity"] };
 
             foreach (var entity in entitiesAsList)
             {

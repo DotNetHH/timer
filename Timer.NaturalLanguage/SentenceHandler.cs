@@ -1,10 +1,8 @@
 ﻿using System;
-using MJNsoft.Base.DependencyInjection;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Timer.Abstractions;
 
-namespace Timer.NaturalLanguage.Console
+namespace Timer.NaturalLanguage
 {
     public class SentenceHandler : ISentenceHandler
     {

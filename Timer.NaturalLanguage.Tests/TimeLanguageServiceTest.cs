@@ -8,19 +8,6 @@ namespace NaturalLanguage.Tests
     [TestClass]
     public class TimeLanguageServiceTest
     {
-        [TestMethod]
-        public void TestSimpleCreate()
-        {
-            // der test ist falsch, muss an die business logik angepasst werden
-            var service = new TimerNaturalLanguageService();
-            var result = service.Analyse("Erstelle eine Zeiterfassung von 12:23 bis 14:13 auf das Ticket INC134");
-
-
-            Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result,typeof(StartTaskCommand));
-            Assert.AreEqual("INC134", result.TicketId.ToUpper()); 
-            Assert.AreEqual(DateTime.Parse("12:23"), result.TimeStamp);
-        }
 
         [TestMethod]
         public void TestSimpleStop()
@@ -30,8 +17,8 @@ namespace NaturalLanguage.Tests
 
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(StopTaskCommand));
-            Assert.AreEqual("INC1235", result.TicketId.ToUpper());
+            Assert.IsInstanceOfType(result, typeof(AnalysedSentence));
+            Assert.AreEqual("INC1235", result.GetEntityOrEmpty(AnalysedSentenceEntity.Incident).ToUpper());
         }
 
         [TestMethod]
@@ -42,8 +29,22 @@ namespace NaturalLanguage.Tests
 
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(StartTaskCommand));
-            Assert.AreEqual("INC134", result.TicketId.ToUpper());
+            Assert.IsInstanceOfType(result, typeof(AnalysedSentence));
+            Assert.AreEqual(AnalysedSentenceIntent.StartTimeRecordingNow, result.Intent);
+            Assert.AreEqual("INC134", result.GetEntityOrEmpty(AnalysedSentenceEntity.Incident).ToUpper());
+        }
+
+        [TestMethod]
+        public void TestStartWithDectiption()
+        {
+            var service = new TimerNaturalLanguageService();
+            var result = service.Analyse("Starte Zeiterfassung mit der Beschreibung: Arbeit Arbeit");
+
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(AnalysedSentence));
+            Assert.AreEqual(AnalysedSentenceIntent.StartTimeRecordingNow, result.Intent);
+            Assert.AreEqual("ARBEIT ARBEIT", result.GetEntityOrEmpty(AnalysedSentenceEntity.Description).ToUpper());
         }
     }
 }
