@@ -13,8 +13,6 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using MJNsoft.Base.Database.Postgres.Abstractions;
 using Moq;
 using MJNsoft.Base.Log.Abstractions;
-using Timer;
-using Timer.Abstractions;
 using Timer.WebApi;
 
 namespace WebApi

@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
-using Timer.Abstractions;
-using Timer.Data;
+using Timer.Business.Abstractions;
 
 namespace Timer.NaturalLanguage
 {
@@ -12,10 +12,10 @@ namespace Timer.NaturalLanguage
     {
         private string _url = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/50980763-63b2-42c9-9abf-d38e0acc0c32?subscription-key=2563750847fa4ae4919bde9f07acf981&timezoneOffset=0&verbose=true&q=";
 
-        public WriterCommand Analyse(string Sentence)
+        public AnalysedSentence Analyse(string Sentence)
         {
             var json = LoadJson(Sentence);
-#region debug
+            #region debug
             var json2 = @"{
   'query': 'Erstelle eine Zeiterfassung von 12:23 bis 14:13 auf das Ticket INC134',
   'topScoringIntent': {
@@ -79,11 +79,11 @@ namespace Timer.NaturalLanguage
             return command;
         }
 
-        private WriterCommand Parse(string json)
+        private AnalysedSentence Parse(string json)
         {
             JObject commandAsLanguage = JObject.Parse(json);
 
-            var intent = commandAsLanguage["intents"].First.Value<string>("intent");
+            var intentAsString = commandAsLanguage["intents"].First.Value<string>("intent");
             var scoreAsString = commandAsLanguage["intents"].First.Value<string>("score");
             var score = double.Parse(scoreAsString, CultureInfo.InvariantCulture);
 
@@ -92,19 +92,53 @@ namespace Timer.NaturalLanguage
                 throw new Exception("Unsicherheit: " + score);
             }
 
-            //var incident = GetEntity(commandAsLanguage, "Incident");
-
-            switch (intent)
+            if (!Enum.TryParse(intentAsString, out AnalysedSentenceIntent intent))
             {
-                case "CreareCompleteTimeRecording":
-                    return BuildCreateCommand(commandAsLanguage);
-                case "StartTimeRecordingNow":
-                    return BuildStart(commandAsLanguage);
-                case "StopTimeRecordingNow":
-                    return BeginEnd(commandAsLanguage);
+                throw new Exception("Intent not supported " + intentAsString);
             }
 
-            return null;
+            var analysedSentence = new AnalysedSentence();
+            analysedSentence.Intent = intent;
+            analysedSentence.Entities = ParseEntities(commandAsLanguage);
+            analysedSentence.Score = score;
+
+
+            return analysedSentence;
+            //switch (intent)
+            //{
+            //    case "CreareCompleteTimeRecording":
+            //        return BuildCreateCommand(commandAsLanguage);
+            //    case "StartTimeRecordingNow":
+            //        return BuildStart(commandAsLanguage);
+            //    case "StopTimeRecordingNow":
+            //        return BeginEnd(commandAsLanguage);
+            //}
+
+            //return null;
+        }
+
+        private static Dictionary<AnalysedSentenceEntity, string> ParseEntities(JObject commandAsLanguage)
+        {
+            var dictionary = new Dictionary<AnalysedSentenceEntity, string>();
+
+            // alle type und entities sammeln
+            var entitiesAsList = from e in commandAsLanguage["entities"]
+                                 select new { Key = (string)e["type"], Value = (string)e["entity"] };
+
+            foreach (var entity in entitiesAsList)
+            {
+                // keinen fehler schmeißen, wenn unbekannt
+                if (!Enum.TryParse(entity.Key, out AnalysedSentenceEntity analysedSentenceEntity))
+                {
+                    Console.WriteLine("Entity Type not supported: {0}", entity.Key);
+                }
+                else
+                {
+                    dictionary[analysedSentenceEntity] = entity.Value;
+                }
+            }
+
+            return dictionary;
         }
 
         private WriterCommand BuildStart(JObject commandAsLanguage)

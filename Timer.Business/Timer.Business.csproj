@@ -10,8 +10,4 @@
     <PackageReference Include="MJNsoft.Base.Services" Version="1.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Timer.Data\Timer.Data.csproj" />
-  </ItemGroup>
-
 </Project>

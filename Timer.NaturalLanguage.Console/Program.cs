@@ -6,67 +6,27 @@ using MJNsoft.Base.DependencyInjection;
 using MJNsoft.Base.Log.Abstractions;
 using Moq;
 using Newtonsoft.Json;
-using Timer.Abstractions;
+using Timer.Business.Abstractions;
 
 namespace Timer.NaturalLanguage.Console
 {
-    class Program
+    partial class Program
     {
         static void Main(string[] args)
         {
             ConfigureServices();
-            var commandManager = IoC.Services.GetService<ICommandManager>();
 
-            System.Console.WriteLine("Zeiterfassung gestartet!");
-            System.Console.WriteLine("Was möchten Sie tun?");
-            System.Console.WriteLine("");
-            System.Console.WriteLine("Beispiel: Starte Zeiterfassung");
-
-            var service = new TimerNaturalLanguageService();
-
-            bool isRunning = true;
-            while (isRunning)
+            try
             {
-                var sentence = System.Console.ReadLine();
-
-                if(string.IsNullOrWhiteSpace(sentence))
-                {
-                    //nothing
-                }
-                else if (sentence == "exit")
-                {
-                    isRunning = false;
-                }
-                else if (sentence == "list")
-                {
-                    foreach (var command in commandManager.GetAll())
-                    {
-                        System.Console.WriteLine(command.GetType().Name + " " + JsonConvert.SerializeObject(command));
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        var command = service.Analyse(sentence);
-                        commandManager.AddCommand(command);
-
-                        System.Console.WriteLine(command.GetType().Name + " " + JsonConvert.SerializeObject(command));
-                    }
-                    catch (Exception e)
-                    {
-                        System.Console.WriteLine("Exception: "+e.Message);
-                    }
-                }
+                IoC.Services.GetService<ConsoleInputHandler>().Start();
             }
-
-            //= args.Aggregate("", (i, j) => i + " " + j);
-            
-            
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e);
+                throw;
+            }
         }
-
-
-
+        
         private static Mock<ILoggerProvider> _loggerProviderMock = new Mock<ILoggerProvider>();
         private static Mock<ILogger> _loggerMock = new Mock<ILogger>();
 
@@ -83,26 +43,9 @@ namespace Timer.NaturalLanguage.Console
 
             IoC.ServiceCollection.AddSingleton<ILoggerProvider>(_loggerProviderMock.Object);
 
-            //IoC.ServiceCollection.Add(services);
-            //IoC.ServiceCollection.AddMvc();
-
-
-            // ********************
-            // Setup CORS
-            // ********************
-            //var corsBuilder = new CorsPolicyBuilder();
-            //corsBuilder.AllowAnyHeader();
-            //corsBuilder.AllowAnyMethod();
-            //corsBuilder.AllowAnyOrigin(); // For anyone access.
-            ////corsBuilder.WithOrigins("http://localhost:56573"); // for a specific url. Don't add a forward slash on the end!
-            //corsBuilder.AllowCredentials();
-
-            //IoC.ServiceCollection.AddCors(options =>
-            //{
-            //    options.AddPolicy("SiteCorsPolicy", corsBuilder.Build());
-            //});
-
-            //IoC.ServiceCollection.AddCors();
+            IoC.ServiceCollection.AddSingleton<TimerNaturalLanguageService>();
+            IoC.ServiceCollection.AddSingleton<ISentenceHandler, SentenceHandler>();
+            IoC.ServiceCollection.AddSingleton<ConsoleInputHandler>();
 
             return IoC.Services;
         }

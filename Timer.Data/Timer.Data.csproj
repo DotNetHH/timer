@@ -7,6 +7,11 @@
   <ItemGroup>
     <PackageReference Include="MJNsoft.Base.Database.LinqToDb" Version="1.0.0" />
     <PackageReference Include="MJNsoft.Base.DependencyInjection.Abstractions" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Timer.Business\Timer.Business.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
+using Timer.Business.Abstractions;
 
 namespace Timer.WebApi
 {
@@ -13,9 +14,9 @@ namespace Timer.WebApi
 
         protected AutoMapperProfileConfiguration(string profileName) : base(profileName)
         {
-            CreateMap<Timer.WebApi.Models.TaskModel, Timer.Abstractions.InterruptCommand>();
-            CreateMap<Timer.WebApi.Models.TaskModel, Timer.Abstractions.StartTaskCommand>();
-            CreateMap<Timer.WebApi.Models.TaskModel, Timer.Abstractions.StopTaskCommand>();
+            CreateMap<Timer.WebApi.Models.TaskModel, InterruptTaskCommand>();
+            CreateMap<Timer.WebApi.Models.TaskModel, StartTaskCommand>();
+            CreateMap<Timer.WebApi.Models.TaskModel, StopTaskCommand>();
         }
     }
     

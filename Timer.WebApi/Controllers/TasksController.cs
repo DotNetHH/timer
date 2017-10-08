@@ -11,10 +11,10 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class TasksController : Controller
     {
-        private Timer.Abstractions.ICommandManager businessLayerCommandManager;
+        private Timer.Business.Abstractions.ICommandManager businessLayerCommandManager;
         private readonly IMapper _mapper;
 
-        public TasksController(Timer.Abstractions.ICommandManager commandManager,
+        public TasksController(Timer.Business.Abstractions.ICommandManager commandManager,
             IMapper mapper)
         {
             this.businessLayerCommandManager = commandManager;
@@ -53,8 +53,8 @@ namespace WebApi.Controllers
             if (task == null)
                 return BadRequest();
 
-            var startCommand = _mapper.Map<TaskModel, Timer.Abstractions.StartTaskCommand>(task);
-            businessLayerCommandManager.AddCommand(startCommand);
+            var startCommand = _mapper.Map<TaskModel, Timer.Business.Abstractions.StartTaskCommand>(task);
+            businessLayerCommandManager.AddWriterCommand(startCommand);
 
             return Ok();
         }
@@ -71,8 +71,8 @@ namespace WebApi.Controllers
             if (task == null)
                 return BadRequest();
 
-            var stopCommand = _mapper.Map<TaskModel, Timer.Abstractions.StopTaskCommand>(task);
-            businessLayerCommandManager.AddCommand(stopCommand);
+            var stopCommand = _mapper.Map<TaskModel, Timer.Business.Abstractions.StopTaskCommand>(task);
+            businessLayerCommandManager.AddWriterCommand(stopCommand);
 
             return Ok();
         }
@@ -89,8 +89,8 @@ namespace WebApi.Controllers
             if (task == null)
                 return BadRequest();
 
-            var interruptCommand = _mapper.Map<TaskModel, Timer.Abstractions.InterruptCommand>(task);
-            businessLayerCommandManager.AddCommand(interruptCommand);
+            var interruptCommand = _mapper.Map<TaskModel, Timer.Business.Abstractions.InterruptTaskCommand>(task);
+            businessLayerCommandManager.AddWriterCommand(interruptCommand);
 
             return Ok();
         }
