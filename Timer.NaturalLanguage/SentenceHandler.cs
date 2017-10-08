@@ -1,6 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
-using Timer.Abstractions;
+using Timer.Business.Abstractions;
 
 namespace Timer.NaturalLanguage
 {
@@ -44,7 +44,7 @@ namespace Timer.NaturalLanguage
                 Description = analysedsentence.GetEntityOrEmpty(AnalysedSentenceEntity.Description),
                 TicketId = analysedsentence.GetEntityOrEmpty(AnalysedSentenceEntity.Incident)
             };
-            _commandManager.AddCommand(command);
+            _commandManager.AddWriterCommand(command);
         }
 
         private void Stop(AnalysedSentence analysedsentence)
@@ -55,7 +55,7 @@ namespace Timer.NaturalLanguage
                 Description = analysedsentence.GetEntityOrEmpty(AnalysedSentenceEntity.Description),
                 TicketId = analysedsentence.GetEntityOrEmpty(AnalysedSentenceEntity.Incident)
             };
-            _commandManager.AddCommand(command);
+            _commandManager.AddWriterCommand(command);
         }
 
 
