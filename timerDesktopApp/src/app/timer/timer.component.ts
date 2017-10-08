@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TimerService} from '../timer.service';
-import {Task} from '../Model/task.model';
+import {TasksApi} from '../api/TasksApi';
 
 @Component({
   selector: 'app-timer',
@@ -15,7 +15,7 @@ export class TimerComponent implements OnInit {
   stopTime: number;
   elapsedTime: number;
 
-  constructor(private timerService: TimerService) { }
+  constructor(private timerService: TimerService, private timerApi: TasksApi) { }
 
   ngOnInit() {
     this.state = false;
@@ -28,6 +28,12 @@ export class TimerComponent implements OnInit {
     if (this.state) {
       this.startTime = Date.now();
       console.log('timer started at: ' + this.startTime);
+
+      this.timerApi.apiTasksStartPost({
+        ticketId: 'ticket ID',
+        description: 'and a description again',
+        timeStamp: new Date
+      }).subscribe();
     } else {
       this.stopTime = Date.now();
       console.log('timer stopped at: ' + this.stopTime);
@@ -35,6 +41,12 @@ export class TimerComponent implements OnInit {
       this.elapsedTime = this.stopTime - this.startTime;
 
       console.log('the elapsed time is: ' + this.elapsedTime + 'ms');
+
+      this.timerApi.apiTasksStopPost({
+        description: 'brand new task',
+        ticketId: 'new ID',
+        timeStamp: new Date
+      }).subscribe();
 
       this.timerService.stopTask({
         description: 'a new Task',
