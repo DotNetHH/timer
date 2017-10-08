@@ -1,7 +1,11 @@
-﻿using MJNsoft.Base.Database.Abstractions;
+﻿using System;
+using System.Collections.Generic;
+using MJNsoft.Base.Database.Abstractions;
 using MJNsoft.Base.DependencyInjection.Abstractions;
 using Newtonsoft.Json;
 using Timer.Data.Abstractions;
+using System.Linq;
+using MJNsoft.Base.Model;
 
 namespace Timer.Data
 {
@@ -24,17 +28,16 @@ namespace Timer.Data
             });
         }
 
-        //private void Test()
-        //{
-        //    using (var ctx = _timerDbContext.CreateContext())
-        //    {
-        //        ctx.BeginTransaction();
-        //        _timerDbContext.Insert()
+        public IEnumerable<TimerEvent> GetAll()
+        {
+            return _commandRepositoryWorker.GetAll().Select(e => JsonConvert.DeserializeObject<TimerEvent>(e.Command));
+        }
 
-        //            ctx.CommitTransaction();
-        //    }
-        //}
-
-
+        public IEnumerable<TimerEvent> GetAllForDate(DateTime date)
+        {
+            var queryRequest = new QueryRequest<CommandEntity>();
+            queryRequest.Where(e => e.TimeStamp.Date == date.Date);
+            return _commandRepositoryWorker.Query(queryRequest).Select(e => JsonConvert.DeserializeObject<TimerEvent>(e.Command));
+        }
     }
 }

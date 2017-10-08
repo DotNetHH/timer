@@ -8,11 +8,13 @@ namespace Timer.NaturalLanguage
     {
         private readonly TimerNaturalLanguageService _naturalLanguageService;
         private readonly ICommandManager _commandManager;
+        private readonly IReaderManager _readerManager;
 
-        public SentenceHandler(TimerNaturalLanguageService naturalLanguageService, ICommandManager commandManager)
+        public SentenceHandler(TimerNaturalLanguageService naturalLanguageService, ICommandManager commandManager, IReaderManager readerManager)
         {
             _naturalLanguageService = naturalLanguageService;
             _commandManager = commandManager;
+            _readerManager = readerManager;
         }
 
         public void Handle(string sentence)
@@ -61,7 +63,7 @@ namespace Timer.NaturalLanguage
 
         private void Show()
         {
-            foreach (var command in this._commandManager.GetAll())
+            foreach (var command in this._readerManager.GetAll())
             {
                 System.Console.WriteLine(command.GetType().Name + " " + JsonConvert.SerializeObject(command));
             }
